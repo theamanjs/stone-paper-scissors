@@ -58,14 +58,17 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
     width: 33.3%;
 }
+
 .center{
     margin: 0 auto;
 }
 
 img{
     width: 80px;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 600px){

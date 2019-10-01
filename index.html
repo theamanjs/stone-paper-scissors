@@ -8,7 +8,6 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <title>Document</title>
-<script src="js/main.js"></script>
 
 </head>
 <body>
@@ -16,27 +15,27 @@
         <div class="inner-container">
 
             <div class="text-center">
-                <h1>Round #</h1>
+                <h1>Round <span id="roundNumber">1</span></h1>
             </div>
 
             <div class="wrapper-playing-area">
                 <div class="my-side">
                     <div class="text-center">Your Score</div>
                     <div class="stars">
-                        <div class="star-one"><i class="fas fa-star"></i></div>
-                        <div class="star-two"><i class="far fa-star"></i></div>
-                        <div class="star-three"><i class="far fa-star"></i></div>
+                        <div class="star-one"><i class="far fa-star" id="myScoreOne"></i></div>
+                        <div class="star-two"><i class="far fa-star" id="myScoreSecond"></i></div>
+                        <div class="star-three"><i class="far fa-star" id="myScoreThird"></i></div>
                     </div>
 
                     <div class="selecting-items">
                         <div class="stone item-placement">
-                            <img src="./images/rock.svg" alt="Rock">
+                            <img onclick="selectedItem('stone')" src="./images/rock.svg" alt="Rock">
                         </div>
                         <div class="paper item-placement">
-                            <img src="./images/paper.svg" alt="">
+                            <img onclick="selectedItem('paper')" src="./images/paper.svg" alt="">
                         </div>
                         <div class="scissors item-placement">
-                            <img src="./images/scissors.svg" alt="">
+                            <img onclick="selectedItem('scissors')" src="./images/scissors.svg" alt="">
                         </div>
                     </div>
 
@@ -46,10 +45,10 @@
                 <div class="opponent-side">
                     
                     <div class="text-center">Opponent's Score</div>
-                    <div class="stars">
-                        <div class="star-one"><i class="fas fa-star"></i></div>
-                        <div class="star-two"><i class="fas fa-star"></i></div>
-                        <div class="star-three"><i class="far fa-star"></i></div>
+                    <div class="stars" > 
+                        <div class="star-one"><i class="far fa-star" id="opponentScoreOne"></i></div>
+                        <div class="star-two"><i class="far fa-star" id="opponentScoreSecond"></i></div>
+                        <div class="star-three"><i class="far fa-star" id="opponentScoreThird"></i></div>
                     </div>
 
                     <div class="selecting-items">
@@ -68,12 +67,12 @@
                         </div> -->
                     </div>
 
-                    <div class="status-my text-center">Opponent is making a pick</div>
+                    <div class="status-opponent text-center">Opponent is making a pick</div>
 
                 </div>
             </div>
-            <div class="text-center" id="result">
-                <h4>You Win!</h4>
+            <div class="text-center">
+                <h4 id="result"></h4>
             </div>
 
         </div>
@@ -81,3 +80,4 @@
 
 </body>
 </html>
+<script src="js/main.js"></script>
