@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <title>Document</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <title>Stone-Paper-Scissors</title>
 
 </head>
 <body>
@@ -29,17 +30,17 @@
 
                     <div class="selecting-items">
                         <div class="stone item-placement">
-                            <img onclick="selectedItem('stone')" src="./images/stone.svg" alt="Rock">
+                            <img id="stone" onclick="selectedItem('stone')" src="./images/stone.svg" alt="">
                         </div>
                         <div class="paper item-placement">
-                            <img onclick="selectedItem('paper')" src="./images/paper.svg" alt="">
+                            <img id="paper" onclick="selectedItem('paper')" src="./images/paper.svg" alt="">
                         </div>
                         <div class="scissors item-placement">
-                            <img onclick="selectedItem('scissors')" src="./images/scissors.svg" alt="">
+                            <img id="scissors" onclick="selectedItem('scissors')" src="./images/scissors.svg" alt="">
                         </div>
                     </div>
 
-                    <div class="status-my text-center">Make a pick</div>
+                    <div class="status-my text-center"></div>
 
                 </div>
                 <div class="opponent-side">
@@ -67,7 +68,7 @@
                         </div> -->
                     </div>
 
-                    <div class="status-opponent text-center">Opponent is making a pick</div>
+                    <div class="status-opponent text-center"></div>
 
                 </div>
             </div>

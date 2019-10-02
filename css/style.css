@@ -3,7 +3,8 @@ body{
     padding: 0;
     color: white;
     overflow: hidden;
-    font-family: 'Roboto', sans-serif;
+    font-family: sans-serif;
+    font-weight: normal;
 }
 #result{
     min-height: 10px;
@@ -53,14 +54,14 @@ body{
 .selecting-items{
     display:flex;
     align-content: stretch;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 50%;
 }
 .item-placement{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     width: 33.3%;
 }
 
