@@ -5,7 +5,9 @@ body{
     overflow: hidden;
     font-family: 'Roboto', sans-serif;
 }
-
+#result{
+    min-height: 10px;
+}
 
 .container{
     display: flex;
