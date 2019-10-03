@@ -103,4 +103,10 @@ img{
         height: 50%;
         width: 100%;
     }
+    .status-opponent{
+        display:none;
+    }
+    .status-my{
+        display:none;
+    }
 }

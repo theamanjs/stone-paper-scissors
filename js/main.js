@@ -13,7 +13,7 @@ function MyMove(selection){
 }
 
 function OpponentMove(){
-    this.selection = ['stone', 'paper', 'scissors'];
+    this.selection = ['stone', 'paper', 'scissors', 'stone', 'paper', 'scissors', 'stone', 'paper', 'scissors'];
 }
 
 let bufferSelection = {
@@ -62,8 +62,22 @@ function resetBattle(){
     gameStatus.roundNumber++;
     document.querySelector("#roundNumber").innerText = gameStatus.roundNumber;
     setTimeout(selectionOpponent, Math.round(limit(2000,500)));
-    
+    checkSelection();
+}
 
+function resetWar(){
+    resetScore();
+    document.querySelector("#opponentStatus").setAttribute('src','./images/loading.svg');
+    Paper.display = 'block';
+    Stone.display = 'block';
+    Scissors.display = 'block';
+    document.querySelector(".status-my").innerText = general.processing.proponent.make;
+    document.querySelector(".status-opponent").innerText = general.processing.opponent.make;
+    gameStatus.roundNumber = 1;
+    gameStatus.opponentScore = 0;
+    gameStatus.myScore = 0;
+    document.querySelector("#roundNumber").innerText = gameStatus.roundNumber;
+    setTimeout(selectionOpponent, Math.round(limit(2000,500)));
     checkSelection();
 }
 
@@ -71,7 +85,7 @@ function resetBattle(){
 let limit = (max, min) => Math.random() * (max - min) + min;
 function selectionOpponent(){
     let opponentMove = new OpponentMove();
-    let randomNumber = Math.round(limit(2,0));
+    let randomNumber = Math.round(limit(8,0));
     // console.log(randomNumber);
     console.log(opponentMove.selection[randomNumber]);
     document.querySelector(".status-opponent").innerText = general.processing.opponent.made;
@@ -184,6 +198,28 @@ function checkScore(){
         // return;
         console.log('Game End: You Lose');
     }
+    
+}
+
+function resetScore(){
+        document.querySelector("#myScoreOne").classList.add("far");
+        document.querySelector("#myScoreOne").classList.remove("fas");
+        // return;
+        document.querySelector("#myScoreSecond").classList.add("far");
+        document.querySelector("#myScoreSecond").classList.remove("fas");
+        // return;
+        document.querySelector("#myScoreThird").classList.add("far");
+        document.querySelector("#myScoreThird").classList.remove("fas");
+
+        document.querySelector("#opponentScoreOne").classList.add("far");
+        document.querySelector("#opponentScoreOne").classList.remove("fas");
+
+        document.querySelector("#opponentScoreSecond").classList.add("far");
+        document.querySelector("#opponentScoreSecond").classList.remove("fas");
+        // return;
+        document.querySelector("#opponentScoreThird").classList.add("far");
+        document.querySelector("#opponentScoreThird").classList.remove("fas");
+        // return;
     
 }
 
