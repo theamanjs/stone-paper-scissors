@@ -119,7 +119,7 @@ function selectedItem(selection){
     let Paper = document.querySelector("#paper").style ; 
     let Scissors = document.querySelector("#scissors").style ;
     let Stone = document.querySelector("#stone").style ;
-    console.log(move.selection);
+    // console.log(move.selection);
     bufferSelection.mySelection = move.selection;
 
     if(move.selection === "stone"){
