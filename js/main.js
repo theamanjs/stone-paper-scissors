@@ -1,5 +1,3 @@
-//"use strict()";
-
 function GameStatus(){
     this.roundNumber = 1;
     this.myScore = 0;
@@ -42,14 +40,27 @@ function resetBattle(){
     
     if(gameStatus.opponentScore === 3 ){
         setTimeout(() => {
-            document.querySelector("#result").innerText = 'Game End: You Lose';
+            document.querySelector("#result").innerText = `Game End: You Lose (${gameStatus.myScore} : ${gameStatus.opponentScore})` ;
         }, 2000);
+        setTimeout(() => {
+            document.querySelector("#result").innerText = 'New Match'
+            setTimeout(() => {
+                resetWar();
+            }, 1000);
+        }, 5500);
         return;
     }
     if(gameStatus.myScore === 3 ){
         setTimeout(() => {
-            document.querySelector("#result").innerText = 'Game End: You Won';
+            document.querySelector("#result").innerText = `Game End: You Won (${gameStatus.myScore} : ${gameStatus.opponentScore})`;
         }, 2000);
+        setTimeout(() => {
+            document.querySelector("#result").innerText = 'New Match'
+            setTimeout(() => {
+                resetWar();
+            }, 1000);
+        }, 5500);
+
         return;
     }
 
@@ -86,20 +97,16 @@ let limit = (max, min) => Math.random() * (max - min) + min;
 function selectionOpponent(){
     let opponentMove = new OpponentMove();
     let randomNumber = Math.round(limit(8,0));
-    // console.log(randomNumber);
-    console.log(opponentMove.selection[randomNumber]);
+    // console.log(opponentMove.selection[randomNumber]);
     document.querySelector(".status-opponent").innerText = general.processing.opponent.made;
     bufferSelection.opponentSelection = opponentMove.selection[randomNumber];
-    // bufferSelection.draw();
     document.querySelector("#opponentStatus").setAttribute('src','./images/tick.png');
 } 
 setTimeout(selectionOpponent, Math.round(limit(2000,500)));
-// console.log(buff)
 
 function opponentDisplay(selection){
     let image = './images/' + selection + '.svg';
     document.querySelector("#opponentStatus").setAttribute('src',image);
-    // console.log(image);
 }
 
     
@@ -114,7 +121,6 @@ function selectedItem(selection){
     let Stone = document.querySelector("#stone").style ;
     console.log(move.selection);
     bufferSelection.mySelection = move.selection;
-    // bufferSelection.draw();
 
     if(move.selection === "stone"){
         Paper.display = 'none';
@@ -129,9 +135,6 @@ function selectedItem(selection){
         Stone.display = 'none';
     }
     document.querySelector(".status-my").innerText = general.processing.proponent.made;
-
-
-    // console.log(move.selection);
 }
 
 
@@ -225,52 +228,44 @@ function resetScore(){
 
 function judgement(){
     if(bufferSelection.mySelection === 'stone' && bufferSelection.opponentSelection === 'stone'){
-        //console.log(general.resultTag.tie);
         document.querySelector("#result").innerText = general.resultTag.tie;
         return;
     }
     if(bufferSelection.mySelection === 'stone' && bufferSelection.opponentSelection === 'scissors'){
-        //console.log(general.resultTag.won);
         gameStatus.myScore++;
         document.querySelector("#result").innerText = general.resultTag.won;
         checkScore();
         return;
     }
     if(bufferSelection.mySelection === 'stone' && bufferSelection.opponentSelection === 'paper'){
-        //console.log(general.resultTag.Lose);
         gameStatus.opponentScore++;
         document.querySelector("#result").innerText = general.resultTag.lose;
         checkScore();
         return;
     }
     if(bufferSelection.mySelection === 'paper' && bufferSelection.opponentSelection === 'paper'){
-        //console.log(general.resultTag.tie);
         document.querySelector("#result").innerText = general.resultTag.tie;
         checkScore();
         return;
     }
     if(bufferSelection.mySelection === 'paper' && bufferSelection.opponentSelection === 'stone'){
-        //console.log(general.resultTag.won);
         gameStatus.myScore++;
         document.querySelector("#result").innerText = general.resultTag.won;
         checkScore();
         return;
     }
     if(bufferSelection.mySelection === 'paper' && bufferSelection.opponentSelection === 'scissors'){
-        //console.log(general.resultTag.Lose);
         gameStatus.opponentScore++;
         document.querySelector("#result").innerText = general.resultTag.lose;
         checkScore();
         return;
     }
     if(bufferSelection.mySelection === 'scissors' && bufferSelection.opponentSelection === 'scissors'){
-        //console.log(general.resultTag.tie);
         document.querySelector("#result").innerText = general.resultTag.tie;
         checkScore();
         return;
     }
     if(bufferSelection.mySelection === 'scissors' && bufferSelection.opponentSelection === 'stone'){
-        //console.log(general.resultTag.Lose);
         gameStatus.opponentScore++;
         document.querySelector("#result").innerText = general.resultTag.lose;
         //console.log("Lose")
@@ -284,15 +279,10 @@ function judgement(){
         checkScore();
         return;
     }
-    // //console.log("My ",gameStatus.myScore);
-    // console.log("Opponent ",gameStatus.opponentScore);
-   
 }
 
 function showResult(){
     setTimeout(() => {
             document.querySelector("#result").innerText = general.resultTag.null;
         }, 3000);
-        // clearInterval(showResult);
 }
-// console.log(gameInfo.user.round);
