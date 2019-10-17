@@ -76,7 +76,7 @@ img{
 
 @media only screen and (max-width: 600px){
     .wrapper-playing-area{
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     .stars{

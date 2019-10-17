@@ -10,6 +10,12 @@ function MyMove(selection){
     this.selection = selection;
 }
 
+function playSound(situation){
+    // console.log(`${situation}.wav`);
+    const audio = document.getElementById(`${situation}`);
+    audio.play();
+}
+
 function OpponentMove(){
     this.selection = ['stone', 'paper', 'scissors', 'stone', 'paper', 'scissors', 'stone', 'paper', 'scissors'];
 }
@@ -115,6 +121,7 @@ let Scissors = document.querySelector("#scissors").style ;
 let Stone = document.querySelector("#stone").style ;
 
 function selectedItem(selection){
+    playSound('tink');
     let move = new MyMove(selection);
     let Paper = document.querySelector("#paper").style ; 
     let Scissors = document.querySelector("#scissors").style ;
@@ -183,6 +190,7 @@ function checkScore(){
         document.querySelector("#myScoreThird").classList.add("fas");
         document.querySelector("#myScoreThird").classList.remove("far");
         console.log('Game End: You Won');
+        playSound('won');
         // return;
     }
     if(gameStatus.opponentScore === 1){
@@ -200,6 +208,7 @@ function checkScore(){
         document.querySelector("#opponentScoreThird").classList.remove("far");
         // return;
         console.log('Game End: You Lose');
+        playSound('lose');
     }
     
 }
